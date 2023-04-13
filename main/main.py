@@ -15,12 +15,11 @@ input = input("Enter pattern: ")
 results = find_in_file(
     file_name="hillel_python_project/main/rockyou.txt",
     pattern=input,
-
 )
 
 with open("result.txt", "w") as file:
     for resultfile in results:
-        file.write(resultfile + '\n')
+        file.write(resultfile + "\n")
 
 num_lines = len(results)
 print(f"Number of lines in the file: {num_lines}")
