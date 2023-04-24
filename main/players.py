@@ -1,4 +1,3 @@
-
 def players_repr(players: list[dict], verbose: bool) -> None:
     if verbose:
         print(">>>> TEAM:")
@@ -13,18 +12,18 @@ def players_add(players: list[dict], player: dict) -> list[dict]:
 
 
 def players_del(players: list[dict], name: str) -> list[dict]:
-    players = [p for p in players if p['name'] != name]
+    players = [p for p in players if p["name"] != name]
     return players
 
 
 def players_find(players: list[dict], name: str) -> list[dict]:
-    result = [p for p in players if p['name'] == name]
+    result = [p for p in players if p["name"] == name]
     return result
 
 
 def players_get_by_name(players: list[dict], name: str) -> dict | None:
     for player in players:
-        if player['name'] == name:
+        if player["name"] == name:
             return player
     return None
 
@@ -45,9 +44,11 @@ def main():
         if user_input == "repr":
             players_repr(team, True)
         elif user_input == "add":
-            player = {"name": input("Enter player name: "),
-                      "age": int(input("Enter player age: ")),
-                      "number": int(input("Enter player number: "))}
+            player = {
+                "name": input("Enter player name: "),
+                "age": int(input("Enter player age: ")),
+                "number": int(input("Enter player number: ")),
+            }
             team = players_add(team, player)
         elif user_input == "del":
             name = input("Enter player name to delete: ")
