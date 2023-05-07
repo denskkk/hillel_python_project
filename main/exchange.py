@@ -45,18 +45,27 @@ def convert_currency():
         if currency_from == currency_to:
             converted_amount = amount
         elif currency_from == "USD":
-            converted_amount = amount * \
-                               er.get_exchange_rate(currency_from, currency_to)
+            # fmt: off
+            converted_amount = amount * er.get_exchange_rate(
+                currency_from, currency_to)
+            # fmt: on
         elif currency_to == "USD":
-            converted_amount = amount / \
-                               er.get_exchange_rate(currency_to, currency_from)
-        else:
-            converted_amount = amount * \
-                               er.get_exchange_rate(currency_from, "USD")
-            converted_amount /= er.get_exchange_rate(currency_to, "USD")
+            # fmt: off
+            converted_amount = amount / er.get_exchange_rate(
+                currency_to, currency_from)
+            # fmt: on
 
-        print(f"{amount} {currency_from} is equivalent to "
-              f"{converted_amount:.2f} {currency_to}")
+        else:
+            converted_amount = (
+                amount
+                * er.get_exchange_rate(currency_from, "USD")
+                / er.get_exchange_rate(currency_to, "USD")
+            )
+
+        print(
+            f"{amount} {currency_from} "
+            f"is equivalent to {converted_amount:.2f} {currency_to}"
+        )
 
 
 if __name__ == "__main__":
