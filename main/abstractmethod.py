@@ -69,5 +69,5 @@ def process_schedule(posts: list[Post], channels: list[SocialChannel]) -> None:
                 elif channel.type == "twitter":
                     network = Twitter(channel)
                 else:
-                    raise ValueError(f"Unsupported network type: {channel.type}")
+                    raise ValueError(f"Unknown network type:{channel.type}")
                 network.post(message)
