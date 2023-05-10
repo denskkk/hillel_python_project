@@ -33,10 +33,10 @@ def download_image(image_url):
 if __name__ == "__main__":
     image_url = "https://picsum.photos/2000/2000"
     start_time = perf_counter()
-    #Download image using multiprocessing
+    # Download image using multiprocessing
     p1 = Process(target=download_image, args=(image_url,))
     p1.start()
-    #Encrypt file using multithreading
+    # Encrypt file using multithreading
     p2 = Process(target=encrypt_file, args=("image.jpg",))
     p2.start()
     p1.join()
