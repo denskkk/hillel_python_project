@@ -7,7 +7,6 @@ import requests
 
 
 # CPU-bound task (heavy computation)
-
 def encrypt_file(path: str):
     start_time = perf_counter()
     print(f"Processing image from {path} in process {os.getpid()}")
