@@ -17,7 +17,7 @@ class Post:
 class SocialNetwork(ABC):
     @abstractmethod
     def post(self, message: str) -> None:
-        pass
+        ...
 
 
 class Youtube(SocialNetwork):
