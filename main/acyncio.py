@@ -25,9 +25,9 @@ class ExchangeRates:
     @staticmethod
     async def _fetch_from_api() -> dict:
         url = (
-            "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=UAH"
+            "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=UAH"  # noqa
             "&apikey=3B5LR2VELU7SHVL7"
-        )  # noqa
+        )
 
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
