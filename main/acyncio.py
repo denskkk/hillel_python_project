@@ -1,6 +1,7 @@
-from pprint import pprint as print
-import httpx
 import asyncio
+from pprint import pprint as print
+
+import httpx
 
 
 class ExchangeRates:
@@ -23,7 +24,10 @@ class ExchangeRates:
 
     @staticmethod
     async def _fetch_from_api() -> dict:
-        url = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=UAH&apikey=3B5LR2VELU7SHVL7"
+        url = (
+            "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=UAH"
+            "&apikey=3B5LR2VELU7SHVL7"
+        )  # noqa
 
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
